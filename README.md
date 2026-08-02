@@ -32,7 +32,7 @@ The project is split into two deliverables:
 
 Moving a monetization/progression gate later in a game is a common design
 lever: it could help retention (less friction early) or hurt it (more
-investment lost when players do quit at the wall). Cookie Cats' team ran a
+investment lost when players do quit at the wall). Tactile Entertainment ran a
 live A/B test to settle this empirically rather than by intuition. This
 project reproduces and extends that analysis to give a defensible,
 statistically grounded recommendation.
@@ -74,8 +74,7 @@ cookie-cats-ab-testing-analysis/
 │       └── cookie_cats.csv          # raw dataset (untouched)
 ├── notebook/
 │   └── cookiecats_ab_analysis.ipynb # full analysis, Phases 1–3
-├── screenshots/
-│   └── 01_dashboard_overview.png    # dashboard screenshot
+├── screenshots/                     # dashboard screenshot (shown above)
 └── powerbi/
     ├── cookiecats_ab_dashboard.pbix # the built report
     ├── BUILD_INSTRUCTIONS.md        # step-by-step build guide
@@ -94,19 +93,19 @@ cookie-cats-ab-testing-analysis/
 
 The notebook is organized into three phases, each building on the last:
 
-**Phase 1 — Data Loading & Quality Checks**
+### Phase 1 — Data Loading & Quality Checks
 Column-by-column data dictionary, shape/dtype/missing-value/duplicate checks,
 experiment group sizes, and a Sample Ratio Mismatch (SRM) check to confirm
 randomization landed close to the intended 50/50 split — before any group
 comparison is trusted. No hypothesis testing on the outcome metrics happens in
 this phase.
 
-**Phase 2 — Retention Hypothesis Testing**
+### Phase 2 — Retention Hypothesis Testing
 Formal two-sided hypothesis tests on Day-1 and Day-7 retention: rates,
 absolute and relative differences, 95% confidence intervals, p-values, and
 Cohen's h effect size for each.
 
-**Phase 3 — Guardrail Metric Analysis**
+### Phase 3 — Guardrail Metric Analysis
 Distributional diagnostics on `sum_gamerounds` (skewness, outliers, variance
 homogeneity) *before* picking a test — the data turned out to be severely
 right-skewed with one extreme outlier, which ruled out a naive mean-based
@@ -184,17 +183,11 @@ table, and a recommendation callout.
   in [`DATA_MODEL.md`](powerbi/DATA_MODEL.md).
 - **To rebuild from scratch:** follow [`BUILD_INSTRUCTIONS.md`](powerbi/BUILD_INSTRUCTIONS.md) — exact CSV, field mapping (Axis/Legend/Values), and formatting for every visual, plus a final QA checklist against the notebook.
 
-## Project Screenshots
-
-| Dashboard |
-|---|
-| ![Cookie Cats A/B Test dashboard](screenshots/01_dashboard_overview.png) |
-
 ## How to Run the Project Locally
 
 **1. Clone the repository**
 ```bash
-git clone <this-repo-url>
+git clone https://github.com/Arshanapally-Akshith/cookie-cats-ab-testing-analysis.git
 cd cookie-cats-ab-testing-analysis
 ```
 
@@ -213,9 +206,9 @@ Run all cells top to bottom — the notebook reads the dataset via a relative
 path (`../data/raw/cookie_cats.csv`), so no path changes are needed.
 
 **4. Open the dashboard (optional)**
-Open `powerbi/cookiecats_ab_dashboard.pbix` in
+Open [`powerbi/cookiecats_ab_dashboard.pbix`](powerbi/cookiecats_ab_dashboard.pbix) in
 [Power BI Desktop](https://powerbi.microsoft.com/desktop/) (Windows only). To
-rebuild it from scratch instead, follow `BUILD_INSTRUCTIONS.md`.
+rebuild it from scratch instead, follow [`BUILD_INSTRUCTIONS.md`](powerbi/BUILD_INSTRUCTIONS.md).
 
 ## Future Improvements
 
