@@ -5,7 +5,7 @@ from level 30 to level 40? A full statistical analysis of a real 90,189-player
 mobile game A/B test — hypothesis testing, guardrail-metric analysis, and a
 one-page executive Power BI dashboard.
 
-![Dashboard overview](project-B-cookiecats-ab/screenshots/01_dashboard_overview.png)
+![Dashboard overview](screenshots/01_dashboard_overview.png)
 
 ---
 
@@ -69,26 +69,25 @@ statistically grounded recommendation.
 cookie-cats-ab-testing-analysis/
 ├── README.md
 ├── requirements.txt
-└── project-B-cookiecats-ab/
-    ├── data/
-    │   └── raw/
-    │       └── cookie_cats.csv          # raw dataset (untouched)
-    ├── notebook/
-    │   └── cookiecats_ab_analysis.ipynb # full analysis, Phases 1–3
-    ├── screenshots/
-    │   └── 01_dashboard_overview.png    # dashboard screenshot
-    └── powerbi/
-        ├── cookiecats_ab_dashboard.pbix # the built report
-        ├── BUILD_INSTRUCTIONS.md        # step-by-step build guide
-        ├── DATA_MODEL.md                # table-by-table model documentation
-        ├── DAX_measures.md              # optional live cross-check measures
-        └── data/                        # Power BI-ready CSVs (tidy/long format)
-            ├── kpi_cards.csv
-            ├── retention_chart.csv
-            ├── guardrail_chart.csv
-            ├── sample_allocation.csv
-            ├── stats_summary.csv
-            └── srm_test.csv
+├── data/
+│   └── raw/
+│       └── cookie_cats.csv          # raw dataset (untouched)
+├── notebook/
+│   └── cookiecats_ab_analysis.ipynb # full analysis, Phases 1–3
+├── screenshots/
+│   └── 01_dashboard_overview.png    # dashboard screenshot
+└── powerbi/
+    ├── cookiecats_ab_dashboard.pbix # the built report
+    ├── BUILD_INSTRUCTIONS.md        # step-by-step build guide
+    ├── DATA_MODEL.md                # table-by-table model documentation
+    ├── DAX_measures.md              # optional live cross-check measures
+    └── data/                        # Power BI-ready CSVs (tidy/long format)
+        ├── kpi_cards.csv
+        ├── retention_chart.csv
+        ├── guardrail_chart.csv
+        ├── sample_allocation.csv
+        ├── stats_summary.csv
+        └── srm_test.csv
 ```
 
 ## Methodology
@@ -177,19 +176,19 @@ retention-by-group chart, a guardrail-engagement chart, an experiment-quality
 panel (sample split + SRM + data-quality note), a full statistical summary
 table, and a recommendation callout.
 
-- **File:** [`project-B-cookiecats-ab/powerbi/cookiecats_ab_dashboard.pbix`](project-B-cookiecats-ab/powerbi/cookiecats_ab_dashboard.pbix)
+- **File:** [`powerbi/cookiecats_ab_dashboard.pbix`](powerbi/cookiecats_ab_dashboard.pbix)
 - **How it's built:** every chart/KPI is bound to a small, pre-shaped,
   notebook-sourced CSV under `powerbi/data/` — no value on the dashboard is
   recalculated in Power BI; everything is either imported as-is from the
   notebook's statistical output or a trivially-exact aggregate. Full rationale
-  in [`DATA_MODEL.md`](project-B-cookiecats-ab/powerbi/DATA_MODEL.md).
-- **To rebuild from scratch:** follow [`BUILD_INSTRUCTIONS.md`](project-B-cookiecats-ab/powerbi/BUILD_INSTRUCTIONS.md) — exact CSV, field mapping (Axis/Legend/Values), and formatting for every visual, plus a final QA checklist against the notebook.
+  in [`DATA_MODEL.md`](powerbi/DATA_MODEL.md).
+- **To rebuild from scratch:** follow [`BUILD_INSTRUCTIONS.md`](powerbi/BUILD_INSTRUCTIONS.md) — exact CSV, field mapping (Axis/Legend/Values), and formatting for every visual, plus a final QA checklist against the notebook.
 
 ## Project Screenshots
 
 | Dashboard |
 |---|
-| ![Cookie Cats A/B Test dashboard](project-B-cookiecats-ab/screenshots/01_dashboard_overview.png) |
+| ![Cookie Cats A/B Test dashboard](screenshots/01_dashboard_overview.png) |
 
 ## How to Run the Project Locally
 
@@ -208,13 +207,13 @@ pip install -r requirements.txt
 
 **3. Run the analysis**
 ```bash
-jupyter notebook project-B-cookiecats-ab/notebook/cookiecats_ab_analysis.ipynb
+jupyter notebook notebook/cookiecats_ab_analysis.ipynb
 ```
 Run all cells top to bottom — the notebook reads the dataset via a relative
 path (`../data/raw/cookie_cats.csv`), so no path changes are needed.
 
 **4. Open the dashboard (optional)**
-Open `project-B-cookiecats-ab/powerbi/cookiecats_ab_dashboard.pbix` in
+Open `powerbi/cookiecats_ab_dashboard.pbix` in
 [Power BI Desktop](https://powerbi.microsoft.com/desktop/) (Windows only). To
 rebuild it from scratch instead, follow `BUILD_INSTRUCTIONS.md`.
 
