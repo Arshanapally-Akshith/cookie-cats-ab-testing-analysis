@@ -1,0 +1,2 @@
+chi2_stat,p_value,threshold,verdict,dq_missing_values,dq_duplicate_users,dq_out_of_range_values,note
+6.9024,0.0086,0.01,Borderline SRM,0,0,0,"No missing values; no duplicate user IDs; no negative or out-of-range values (Phase 1 QA)."

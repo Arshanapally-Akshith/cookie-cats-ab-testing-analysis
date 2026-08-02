@@ -1,0 +1,4 @@
+metric,group_control,group_treatment,rate_control,rate_treatment,abs_diff,rel_diff_pct,ci_low,ci_high,ci_range,test_name,test_stat,p_value,effect_size,effect_size_name,significant,significant_label
+Day-1 Retention,Gate 30,Gate 40,0.4482,0.4423,-0.0059,-1.32,-0.0124,0.0006,"[-1.24pp, +0.06pp]",Two-proportion z-test,1.7841,0.0744,-0.0119,Cohen's h,No,Not significant
+Day-7 Retention,Gate 30,Gate 40,0.1902,0.1820,-0.0082,-4.31,-0.0133,-0.0031,"[-1.33pp, -0.31pp]",Two-proportion z-test,3.1644,0.0016,-0.0211,Cohen's h,Yes,Significant decline
+Guardrail - Median Rounds,Gate 30,Gate 40,17,16,-1,-5.88,-1,0,"[-1, 0] rounds",Mann-Whitney U,1024331250.5,0.0502,0.0075,Rank-biserial r,No,No negative impact

@@ -1,0 +1,5 @@
+metric,group,retention_rate
+Day-1 Retention,Gate 30,0.4482
+Day-1 Retention,Gate 40,0.4423
+Day-7 Retention,Gate 30,0.1902
+Day-7 Retention,Gate 40,0.1820
